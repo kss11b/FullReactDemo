@@ -6,8 +6,11 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.join(__dirname, outputDirectory),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: '/public/',
   },
+  watch: true,
+  resolve: { extensions: [".js"] },
   module: {
     rules: [
       {
@@ -36,21 +39,24 @@ module.exports = {
     ]
   },
   devServer: {
-    // publicPath: '/public/',
-    contentBase: __dirname + '/dist',
+    // publicPath: '/',
+    // index: 'index.html',
+    contentBase: `${__dirname}\\dist\\public`,
     port: 3000,
     open: true,
     historyApiFallback: true,
     proxy: {
       "/api": "http://localhost:8080"
-    }
+    },
+    // writeToDisk: true,
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
     new HtmlWebpackPlugin({
       filename: "./public/index.html",
+      // template: "./public/index.html",
       favicon: "./public/favicon.ico",
-      template: "./views/base.ejs"
+      template: "./views/base.ejs",
     })
   ]
 };
