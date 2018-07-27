@@ -5,13 +5,17 @@ const ejs = require('ejs')
 const apiRouter = express.Router()
 
 app.use(express.static("dist"));
-app.get("/api/getUsername", (req, res) =>
-  res.send({ username: os.userInfo().username })
-);
+// app.get("/api/getUsername", (req, res) =>
+//   res.send({ username: os.userInfo().username })
+// );
 
 app.get("/", (req, res) =>
   res.render('index', {})
 );
+
+app.all('/*', (req, res) => {
+  res.render('index', {});
+});
 
 
 app.use('/public', express.static('public'));

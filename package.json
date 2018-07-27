@@ -4,15 +4,15 @@
   "private": true,
   "dependencies": {
     "clean-webpack-plugin": "^0.1.19",
-    "ejs": "^2.6.1",
-    "express": "^4.16.3",
-    "html-webpack-plugin": "^3.2.0",
-    "lodash": "^4.17.10",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "ejs": "2.6.1",
+    "express": "4.16.3",
+    "html-webpack-plugin": "3.2.0",
+    "lodash": "4.17.10",
+    "react": "16.4.0",
+    "react-dom": "16.4.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
-    "webpack": "^4.11.1",
+    "webpack": "4.11.1",
     "webpack-cli": "^3.0.3",
     "webpack-dev-server": "^3.1.4"
   },
@@ -24,6 +24,7 @@
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon server.js",
     "dev": "concurrently \"npm run client\" \"npm run watch\"",
+    "prod": "webpack --mode production",
     "watch": "webpack -w"
   }
 }
